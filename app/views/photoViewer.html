@@ -1,0 +1,18 @@
+<div ng-controller="PhotoViewerCtrl">
+	<div class="photoViewer">
+		<div ng-repeat="i in range(images.length) track by $index">
+			<div class="col-sm-2 sm-3">
+				<a href="" ng-click="imageClick(images[$index])">
+				<img ng-src="{{ thumbnails[$index] }}" class="img-thumbnail center-cropped">
+				</a>
+			</div>
+	    </div>
+	</div>
+
+	<div class="imageShowcase" ng-show="showImage" ng-click="imageClick('')">
+		<div class="imageShowcaseBackdrop"></div>
+		<div>
+			<img class="absoluteCenter" ng-src="{{ image }}">
+		</div>
+	</div>
+</div>
