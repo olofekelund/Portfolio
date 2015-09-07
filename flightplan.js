@@ -2,7 +2,7 @@
 
 var plan = require('flightplan');
 
-var appName = 'node-app';
+var appName = 'Portfolio';
 var username = 'deploy';
 var startFile = 'server.js';
 var IP = '46.101.227.197';

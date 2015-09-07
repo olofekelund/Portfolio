@@ -34,7 +34,12 @@
     "karma-jasmine": "*",
     "karma-phantomjs-launcher": "*",
     "nodemon": "^1.4.1",
-    "time-grunt": "^1.0.0"
+    "time-grunt": "^1.0.0",
+    "grunt-express-server": "^0.5.1",
+    "grunt-google-cdn": "^0.4.3",
+    "grunt-parallel": "^0.4.1",
+    "less": "^2.5.1",
+    "load-grunt-tasks": "^3.2.0"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -46,11 +51,6 @@
     "body-parser": "^1.13.3",
     "compass": "^0.1.1",
     "express": "^4.13.3",
-    "grunt-express-server": "^0.5.1",
-    "grunt-google-cdn": "^0.4.3",
-    "grunt-parallel": "^0.4.1",
-    "less": "^2.5.1",
-    "load-grunt-tasks": "^3.2.0",
     "mongoose": "^4.1.5"
   }
 }
