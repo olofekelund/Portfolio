@@ -1,0 +1,14 @@
+<div ng-controller="ChatCtrl">
+	<div class="userDialog">
+		Enter username: 
+		<input id="username" type="text" ng-model="username">
+		<button ng-click=setUsername(username)>OK!</button>
+	</div>
+	<div class="chatWindow" ng-repeat="message in messages">
+		[{{message.submitted_at | date:'M/d, h:mm'}}]{{ message.username}}: {{message.message}}
+	</div>
+		
+	
+	<input id="message" type="text" ng-model="message">
+	<button ng-click="sendMessage(message)">Send</button>
+</div>

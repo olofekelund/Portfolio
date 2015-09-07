@@ -1,20 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc function
- * @name portfolioApp.controller:PhotoViewerCtrl
- * @description
- * # PhotoViewerCtrl
- * Controller of the Photoviewer. 
- */
-
-/**
- * @ngdoc function
- * @name portfolioApp.controller:AboutCtrl
- * @description
- * # AboutCtrl
- * Controller of the portfolioApp
- */
 angular.module('portfolioApp')
   .controller('PhotoViewerCtrl', ['$scope', '$resource', function ($scope, $resource) {
   	var PhotoView = $resource('/api/photoView');

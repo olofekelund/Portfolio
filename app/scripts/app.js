@@ -33,6 +33,10 @@ var app = angular.module('portfolioApp', [
         templateUrl: 'views/photoViewer.html',
         controller: 'PhotoViewerCtrl'
       })
+      .when('/chat', {
+        templateUrl: 'views/chat.html',
+        controller: 'ChatCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

@@ -2,6 +2,7 @@
   "name": "portfolio",
   "private": true,
   "devDependencies": {
+    "fly": "^0.8.3",
     "grunt": "^0.4.5",
     "grunt-angular-templates": "^0.5.7",
     "grunt-autoprefixer": "^2.0.0",
@@ -42,12 +43,14 @@
     "test": "grunt test"
   },
   "dependencies": {
+    "body-parser": "^1.13.3",
     "compass": "^0.1.1",
     "express": "^4.13.3",
     "grunt-express-server": "^0.5.1",
     "grunt-google-cdn": "^0.4.3",
     "grunt-parallel": "^0.4.1",
     "less": "^2.5.1",
-    "load-grunt-tasks": "^3.2.0"
+    "load-grunt-tasks": "^3.2.0",
+    "mongoose": "^4.1.5"
   }
 }
