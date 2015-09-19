@@ -1,17 +1,33 @@
 'use strict';
 
+
+
 var express 				      = require('express'),
   mongoose                = require('mongoose'),
 	server 					        = express(),
   bodyParser              = require('body-parser'),
-	photoViewerController 	= require('./server/controllers/photoViewerController'),
+  photoViewerController   = require('./server/controllers/photoViewerController'),
   chatController          = require('./server/controllers/chatController'),
   todos                   = require('./server/routes/todos'),
   chat                    = require('./server/routes/chat');
 
+/*
+var express                 = require('express');
+var server                  = express();
+var http                    = require('http').Server(server);
+var io                      = require('socket.io')(http);
+var bodyParser              = require('body-parser');
+var mongoose                = require('mongoose');
+var photoViewerController   = require('./server/controllers/photoViewerController');
+var chatController          = require('./server/controllers/chatController');
+var todos                   = require('./server/routes/todos');
+var chat                    = require('./server/routes/chat');
+*/
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
+
+server.set('view engine', 'jade');
 
 mongoose.connect('mongodb://localhost/mongo', function (err) {
   if (err) {
@@ -32,7 +48,7 @@ server.use('/css', express.static(__dirname + '/public/css/'));
 server.use('/', express.static(__dirname + '/app/'));
 
 server.get('/', function (req, res) {
-  res.sendFile(__dirname + '/app/index.html');
+  res.render(__dirname + '/app/index.jade');
 });
 
 server.get('/users', function(req, res) {
@@ -58,6 +74,34 @@ server.use(function(req, res){
   res.type('txt').send('Not found.');
 });
 
-server.listen(3000, function() {
-	console.log('Listening on port 3000...');
+var io = require('socket.io').listen(server.listen(3000));
+var userlist = {marklandsgatan: "userXY"};
+
+io.sockets.on('connection', function (socket) {
+  console.log('connection!');
+
+  socket.emit('connected', userlist);
+
+  socket.on('message', function(msg) {
+    io.emit('newMessage', msg);
+  });
+
+  socket.on('userEntered', function(user) {
+    userlist[socket] = user;
+    io.emit('userlistUpdate', userlist);
+    console.log(userlist);
+  });
+
+  socket.on('disconnect', function(msg) {
+    console.log(msg);
+
+
+    delete userlist[socket];
+
+    console.log(userlist);
+    io.emit('userlistUpdate', userlist);
+  });
 });
+
+
+

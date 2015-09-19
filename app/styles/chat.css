@@ -1,0 +1,50 @@
+.chatContainer {
+  position: absolute;
+  margin-top: 80px;
+  margin: auto;
+  border: 5px solid red;
+  padding: 5px;
+  background-color: green;
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+#chatWindow {
+  border: 1px solid black;
+  background: tomato;
+  width:450px;
+  height: 372px;
+  overflow: scroll;
+}
+
+.chatMessage {
+  background-color: pink;
+  width: 100%;
+}
+
+.userList {
+  width: 140px;
+  border: 1px solid black;
+  background: lightgreen;
+}
+
+.userListEntry {
+  background: deepskyblue;
+}
+
+.messageBox {
+}
+
+.sendButton {
+}
+
+#messageBox {
+  width: 450px;
+}
+
+#sendButton {
+  width: 140px;
+}

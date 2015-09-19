@@ -45,13 +45,12 @@ module.exports = function (grunt) {
           'app/scripts/**/*.js'
         ]
       },
-      stylesSass: {
-        files: [
-          'app/styles/*.sass'
-        ],
-        tasks: [
-          'compass'
-        ]
+      sass: {
+        files: ['app/styles/*.{scss,sass}'],
+        tasks: ['sass:server', 'postcss'],
+        options: {
+          livereload: true
+        }
       },
       web: {
         files: [
@@ -67,6 +66,55 @@ module.exports = function (grunt) {
         }
       }
     },
+
+    // Compiles Sass to CSS and generates necessary files if requested
+    sass: {
+      options: {
+        sourceMap: true,
+        sourceMapEmbed: true,
+        sourceMapContents: true,
+        includePaths: ['.']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'app/styles',
+          src: ['*.{scss,sass}'],
+          dest: 'app/styles',
+          ext: '.css'
+        }]
+      },
+      server: {
+        files: [{
+          expand: true,
+          cwd: 'app/styles',
+          src: ['*.{scss,sass}'],
+          dest: 'app/styles',
+          ext: '.css'
+        }]
+      }
+    },
+
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          // Add vendor prefixed styles
+          require('autoprefixer-core')({
+            browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+          })
+        ]
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: 'app/styles/',
+          src: '{,*/}*.css',
+          dest: 'app/styles/'
+        }]
+      }
+    },
+
     parallel: {
       web: {
         options: {
@@ -75,9 +123,6 @@ module.exports = function (grunt) {
         tasks: [{
           grunt: true,
           args: ['watch:frontend']
-        }, {
-          grunt: true,
-          args: ['watch:stylesSass']
         }, {
           grunt: true,
           args: ['watch:web']

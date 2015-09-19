@@ -1,0 +1,101 @@
+doctype html
+html
+	head
+		meta(charset="utf-8")
+		meta(name="viewport" content="height=device-height, initial-scale=1")
+		meta(name="viewport" content="width=device-width, initial-scale=1")
+		title= title
+		script(src='https://code.jquery.com/jquery-2.1.4.min.js')
+		link(rel='stylesheet', href='/styles/style.css')
+		link(rel='stylesheet', href='/styles/test.css')
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Montserrat:400,700')
+		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700')
+
+		script.
+			jQuery(document).ready(function($) {
+ 
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+				});
+			});
+
+	.container
+		#section-1
+			h1 Olof Ekelund
+			h4 
+				a#splash.scroll(href='#section-2') För mer info, Klicka Här!
+
+		#section-2
+			.info
+				h1 Jag är:
+				br
+				ul
+					li Programmerare.
+					li Aspirerande Webutvecklare.
+					li Wannabe Designer.
+
+				h4 
+					a.scroll(href='#section-3') Läs vidare...
+
+		#section-3
+			.info
+				h1 Denna Sidan:
+				ul
+					li Portfolio.
+					li Självlärning.
+					li Väldigt Roligt.
+				h4 
+					a.scroll(href='#content') Klicka Här För Appar!
+
+		.body#content
+			.container
+				.col-content
+					.content-row
+						#item1
+							h2 Om mig.
+							p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe quas vel, corporis suscipit tempora ipsa perspiciatis possimus aspernatur necessitatibus alias maxime laborum, quae voluptate, repellendus ipsam. Voluptatum blanditiis sapiente dicta impedit necessitatibus expedita adipisci atque at, ex, assumenda dolores sunt id ullam eaque repellat! Quaerat illo, est. Veniam reiciendis impedit sapiente odio eius perspiciatis fuga voluptatum aspernatur est, modi ipsum pariatur quidem nobis laboriosam quasi, veritatis quae error. Quisquam ullam numquam maxime est, rerum mollitia cupiditate eaque, dolore sit. Non repellat vero, eveniet labore velit sit. Quidem assumenda debitis ipsum consectetur libero sunt saepe error itaque placeat! Vero, soluta, esse.
+							
+						#image1
+
+
+					.content-row
+						#image2
+						#item2
+							h2 Om den här sidan.
+							p Rem tempore voluptatibus ad, iste minima hic possimus, distinctio laudantium suscipit. Dolor atque dolorem rerum animi natus vero sequi eligendi reiciendis, minus perspiciatis aperiam iure repellendus accusamus, quam aliquam in ducimus distinctio sunt debitis eaque totam iusto quo. Voluptate dignissimos atque saepe natus temporibus, omnis assumenda alias nisi consequuntur neque placeat nostrum delectus, et vitae maxime cupiditate aliquid expedita cumque deserunt nesciunt fuga nemo! Sed neque numquam ipsam pariatur quia, placeat repudiandae autem, deserunt dolorum beatae voluptates. Impedit adipisci, optio repellendus sint quibusdam, voluptates culpa ipsam, placeat dolor voluptatum molestias rerum! Nam dolorum alias atque hic eaque laborum voluptates temporibus?
+							
+
+				.content-row
+					.app-box
+						.photo
+							a(href='') 
+								img(src='http://nicenicejpg.com/150/150')
+								
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit pariatur et quos quo, est dolore nihil aliquam. Reprehenderit facere aliquam aliquid impedit praesentium maiores perspiciatis pariatur vero tempore ipsa voluptate, voluptatum ullam ea, expedita tenetur! Sequi excepturi harum rem enim facere accusantium, mollitia libero id non a quisquam laborum quod.
+
+					.app-box
+						.photo
+							a(href='') 
+								img(src='http://nicenicejpg.com/150/150')
+						p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam hic perferendis rerum sunt officiis laboriosam culpa fuga quod architecto, eveniet consequatur iusto aliquam assumenda nobis unde porro voluptates blanditiis placeat inventore. Odio maiores placeat voluptates atque nisi earum voluptas, adipisci aut similique error voluptate facere vel rem quos, reprehenderit distinctio.
+
+					.app-box
+						.photo
+							a(href='') 
+								img(src='http://nicenicejpg.com/150/150')
+						p  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ut modi, eos illum expedita vero obcaecati, adipisci assumenda omnis sed doloribus repellat dignissimos neque perferendis similique ipsum veniam at quo fugit maiores ducimus amet asperiores, ullam vel? Veritatis blanditiis nihil amet officia maiores. Quia blanditiis pariatur veritatis, voluptates aliquam nisi hic neque aliquid eveniet cum repellendus optio molestiae, suscipit consequuntur! Numquam aspernatur quisquam accusamus odio doloribus, asperiores. Soluta aspernatur natus fuga qui obcaecati tenetur veritatis earum labore. Perspiciatis saepe recusandae nobis, officia quod voluptate quo sit voluptatum eaque, nostrum consectetur qui cupiditate molestias vel enim soluta earum possimus! Alias, sint. Aperiam.
+
+				//-.content-row
+					#content-1
+					#content-2
+				
+				//-.content-row
+					#content-3
+					#content-4
+				
+			//-.col-spacer-left 
+				
+			//-.col-spacer-right 
+
+		footer footer

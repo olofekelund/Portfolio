@@ -1,14 +1,29 @@
-<div ng-controller="ChatCtrl">
-	<div class="userDialog">
+<script src="socket.io/socket.io.js"></script>
+
+<div class="userDialog" ng-show="!usernameSet">
+	<form action="">
 		Enter username: 
 		<input id="username" type="text" ng-model="username">
 		<button ng-click=setUsername(username)>OK!</button>
+	</form>	
+</div>
+
+<div class="chatContainer" ng-controller="ChatCtrl">
+	<div id="chatWindow">
+		<div class="chatMessage" ng-repeat="message in messages">
+			[{{message.submitted_at | date:'M/d, h:mm'}}]{{ message.username}}: {{message.message}}
+		</div>
 	</div>
-	<div class="chatWindow" ng-repeat="message in messages">
-		[{{message.submitted_at | date:'M/d, h:mm'}}]{{ message.username}}: {{message.message}}
+	<div class="userlist">
+		<div class="userlistEntry" ng-repeat="socket in userlist">{{ socket }}</div>
 	</div>
-		
+	<form action="">
+		<div class="messageBox">
+			<input id="messageBox" type="text" ng-model="message">
+		</div>
 	
-	<input id="message" type="text" ng-model="message">
-	<button ng-click="sendMessage(message)">Send</button>
+		<div class="sendButton">
+			<button id="sendButton" type="submit" ng-click="sendMessage(message)">Send</button>
+		</div>
+	</form>	
 </div>
