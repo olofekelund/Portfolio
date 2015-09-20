@@ -7,9 +7,7 @@ var express 				      = require('express'),
 	server 					        = express(),
   bodyParser              = require('body-parser'),
   photoViewerController   = require('./server/controllers/photoViewerController'),
-  chatController          = require('./server/controllers/chatController'),
-  todos                   = require('./server/routes/todos'),
-  chat                    = require('./server/routes/chat');
+  chatController          = require('./server/controllers/chatController');
 
 /*
 var express                 = require('express');
@@ -37,8 +35,7 @@ mongoose.connect('mongodb://localhost/mongo', function (err) {
   }
 });
 */
-server.use('/todos', todos);
-server.use('/chat', chat);
+
 server.use(express.static(__dirname + '/public'));
 server.use('/bower_components', express.static(__dirname + '/bower_components'));
 server.use('/views', express.static(__dirname + '/app/views/'));
