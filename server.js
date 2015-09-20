@@ -48,6 +48,18 @@ server.get('/', function (req, res) {
   res.render(__dirname + '/app/index.jade');
 });
 
+server.get('/apps/', function (req, res) {
+  res.render(__dirname + '/app/apps.html');
+});
+
+server.get('/photoviewer', function (req, res) {
+  console.log("photoviwewerwer");
+  res.render(__dirname + '/app/views/photoViewer.html');
+});
+
+server.get('/chat', function (req, res) {
+  res.render(__dirname + '/app/views/chat.html');
+});
 /*
 server.get('/users', function(req, res) {
   mongoose.model('users').find(function(err, users) {
