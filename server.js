@@ -3,7 +3,7 @@
 
 
 var express 				      = require('express'),
-  mongoose                = require('mongoose'),
+//  mongoose                = require('mongoose'),
 	server 					        = express(),
   bodyParser              = require('body-parser'),
   photoViewerController   = require('./server/controllers/photoViewerController'),
@@ -28,7 +28,7 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 
 server.set('view engine', 'jade');
-
+/*
 mongoose.connect('mongodb://localhost/mongo', function (err) {
   if (err) {
     console.log('connection error, ', err);
@@ -36,7 +36,7 @@ mongoose.connect('mongodb://localhost/mongo', function (err) {
     console.log('Connection succesful.');
   }
 });
-
+*/
 server.use('/todos', todos);
 server.use('/chat', chat);
 server.use(express.static(__dirname + '/public'));
@@ -51,12 +51,13 @@ server.get('/', function (req, res) {
   res.render(__dirname + '/app/index.jade');
 });
 
+/*
 server.get('/users', function(req, res) {
   mongoose.model('users').find(function(err, users) {
     res.send(users);
   });
 });
-
+*/
 server.get('/api/photoView', function (req, res) {
   var files = photoViewerController.list;
   res.json(files);
