@@ -19,11 +19,6 @@ var app = angular.module('portfolioApp', [
 
   app.config(function ($routeProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
       .when('/photoviewer', {
         templateUrl: 'views/photoViewer.html',
         controller: 'PhotoViewerCtrl'

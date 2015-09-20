@@ -4,7 +4,6 @@ html
 		title= title
 		meta(name="viewport" content="height=device-height, initial-scale=1")
 		script(src='https://code.jquery.com/jquery-2.1.4.min.js')
-		link(rel='stylesheet', href='/styles/style.css')
 		link(rel='stylesheet', href='/styles/test.css')
 		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Montserrat:400,700')
 		link(rel='stylesheet', href='https://fonts.googleapis.com/css?family=Josefin+Slab:400,700')
@@ -50,15 +49,15 @@ html
 			.info
 				h1 Appar.
 			.container
-				a(href='/#/photoviewer').app-box
-					img(src='http://nicenicejpg.com/150/150')
+				a(href='/apps#/photoviewer').app-box
+					img(src='/img/bg/photoviewer.png')
 					
 					h3 Photo Gallery
 					p Det här var den första appen jag gjorde med Node.js. Det är en ganska enkel app, ett ganska vanligt fotogalleri med thumbnails som man kan klicka på och få en större variant av bilden. Det som gjorde den intressant för mig var att göra kopplingen mellan front-end och back-end för att få data om vilka bilder som finns på servern.
 					
 
-				a(href='/#/chat').app-box
-					img(src='http://nicenicejpg.com/150/150')
+				a(href='/apps#/chat').app-box
+					img(src='/img/bg/chatwindow.png')
 					
 					h3 ChatApp
 					p Tyvärr så har jag inte fått den här appen online, på grund av orsaker. Men det är en chatapplikation som arbetar med websockets för att skicka meddelanden mellan express-servern och klienterna. Det är en rättså enkel applikation men igen så har det varit väldigt lärorikt att göra den.

@@ -3,38 +3,16 @@
 
 
 var express 				      = require('express'),
-//  mongoose                = require('mongoose'),
 	server 					        = express(),
   bodyParser              = require('body-parser'),
   photoViewerController   = require('./server/controllers/photoViewerController'),
   chatController          = require('./server/controllers/chatController');
 
-/*
-var express                 = require('express');
-var server                  = express();
-var http                    = require('http').Server(server);
-var io                      = require('socket.io')(http);
-var bodyParser              = require('body-parser');
-var mongoose                = require('mongoose');
-var photoViewerController   = require('./server/controllers/photoViewerController');
-var chatController          = require('./server/controllers/chatController');
-var todos                   = require('./server/routes/todos');
-var chat                    = require('./server/routes/chat');
-*/
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 
-server.set('view engine', 'jade');
-/*
-mongoose.connect('mongodb://localhost/mongo', function (err) {
-  if (err) {
-    console.log('connection error, ', err);
-  } else {
-    console.log('Connection succesful.');
-  }
-});
-*/
+server.set('view engine', 'html');
 
 server.use(express.static(__dirname + '/public'));
 server.use('/bower_components', express.static(__dirname + '/bower_components'));
@@ -49,24 +27,17 @@ server.get('/', function (req, res) {
 });
 
 server.get('/apps/', function (req, res) {
-  res.render(__dirname + '/app/apps.html');
+  res.render(__dirname + '/app/apps.jade');
 });
 
 server.get('/photoviewer', function (req, res) {
-  console.log("photoviwewerwer");
   res.render(__dirname + '/app/views/photoViewer.html');
 });
 
 server.get('/chat', function (req, res) {
   res.render(__dirname + '/app/views/chat.html');
 });
-/*
-server.get('/users', function(req, res) {
-  mongoose.model('users').find(function(err, users) {
-    res.send(users);
-  });
-});
-*/
+
 server.get('/api/photoView', function (req, res) {
   var files = photoViewerController.list;
   res.json(files);
@@ -84,6 +55,8 @@ server.use(function(req, res){
   res.type('txt').send('Not found.');
 });
 
+server.listen(3000);
+/*
 var io = require('socket.io').listen(server.listen(3000));
 var userlist = {marklandsgatan: "userXY"};
 
@@ -112,6 +85,4 @@ io.sockets.on('connection', function (socket) {
     io.emit('userlistUpdate', userlist);
   });
 });
-
-
-
+*/
